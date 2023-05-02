@@ -30,6 +30,6 @@ const productSlice = createSlice({
 });
 
 // > Export actions
-export const { update } = productSlice.actions
+export const { update } = productSlice.actions;
 // > Export reducers (yang akan digunakan di ./app/store.js)
 export default productSlice.reducer;
