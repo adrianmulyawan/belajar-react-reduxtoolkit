@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 const ShowProductComponent = () => {
   // > akses state dari store.js (./app/store.js)
-  // => menggunakan hooks useSelector()
+  // => menggunakan hooks useSelector(): untuk mendapatkan data dari 'state' yang berada di 'store'.
   const { 
     title, description, price
   } = useSelector((state) => state.product);
