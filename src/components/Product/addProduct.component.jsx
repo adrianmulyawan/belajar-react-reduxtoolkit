@@ -8,18 +8,18 @@ const AddProductComponent = () => {
       <div className="card p-3">
         <form>
           <div className="mb-3">
-            <label for="title" className="form-label">Title</label>
+            <label htmlFor="title" className="form-label">Title</label>
             <input type="text" className="form-control" id="title" name='title' placeholder='Input Product Name' required />
           </div>
           <div className="mb-3">
-            <label for="description" className="form-label">Description</label>
+            <label htmlFor="description" className="form-label">Description</label>
             <input type="text" className="form-control" id="description" name='description' placeholder='Input Description Product' required />
           </div>
           <div className="mb-3">
-            <label for="price" className="form-label">Price</label>
+            <label htmlFor="price" className="form-label">Price</label>
             <input type="text" className="form-control" id="price" name='price' placeholder='Input Product Price' required />
           </div>
-          <div class="d-grid gap-2">
+          <div className="d-grid gap-2">
             <button type="submit" className="btn btn-primary">
               Save Product
             </button>
