@@ -20,6 +20,7 @@ const productSlice = createSlice({
   reducers: {
     // # Ketika update
     update: (state, action) => {
+      // * dispatch function update
       // ~ state.title => berasal dari initialState
       // ~ action.payload => data yang kita kirim ke action
       state.title = action.payload.title;
