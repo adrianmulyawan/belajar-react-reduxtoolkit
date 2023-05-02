@@ -1,21 +1,30 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const ShowProductComponent = () => {
+  // > akses state dari store.js (./app/store.js)
+  // => menggunakan hooks useSelector()
+  const { 
+    title, description, price
+  } = useSelector((state) => state.product);
+
   return (
     <>
       <h3>Show All Products</h3>
       <hr />
       <div className="card">
         <div className="card-body">
-          <h5 className="card-title">Nama Product</h5>
+          <h5 className="card-title">
+            { title }
+          </h5>
           <p className="card-text">
-            Description Product
+            { description }
           </p>
           <p className='text-muted'>
-            Rp 100.000,00
+            Rp { price },00
           </p>
         </div>
-</div>
+      </div>
     </>
   );
 }
