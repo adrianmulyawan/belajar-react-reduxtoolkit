@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { update } from '../../features/productSlice';
 
 const AddProductComponent = () => {
+  // > State
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   
+  // > Mengubah state yang berada di store
+  // => menggunakan method 'useDispatch'
+  const dispatch = useDispatch();
+
   const handleFormAddProduct = (event) => {
     event.preventDefault();
 
-    console.info(title, price, description, '=> ini adalah datanya');
+    console.info(title, description, price, '=> ini adalah datanya');
+
+    // > update data statenya
+    // => update berasal dari ./featurs/productSlice.js
+    dispatch(update({ title, description, price }));
   }
 
   return (
