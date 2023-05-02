@@ -18,7 +18,7 @@ const NavbarComponent = () => {
                 <a className="nav-link" href="/">About</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">Contact</a>
+                <a className="nav-link" href="/product">Products</a>
               </li>
             </ul>
           </div>
