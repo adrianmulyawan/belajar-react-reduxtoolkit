@@ -17,6 +17,7 @@ const AddProductComponent = () => {
   // > Mengubah state yang berada di store
   // => menggunakan method 'useDispatch'
   const dispatch = useDispatch();
+  // > direct
   const navigate = useNavigate();
 
   const handleFormAddProduct = async (event) => {
