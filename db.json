@@ -1,34 +1,40 @@
 {
   "products": [
-    { 
-      "id": 1, 
-      "title": "Casio W-456", 
+    {
+      "id": 1,
+      "title": "Casio W-456",
       "description": "this is description 1",
-      "price": 1000000 
+      "price": 1000000
     },
-    { 
-      "id": 2, 
-      "title": "Daniel Wellington Gen 2", 
+    {
+      "id": 2,
+      "title": "Daniel Wellington Gen 2",
       "description": "this is description 2",
       "price": 1500000
     },
-    { 
-      "id": 3, 
-      "title": "G-SHOCK SGW-400H", 
-      "description": "this is description 3",
-      "price": 3000000 
-    },
-    { 
-      "id": 4, 
-      "title": "Richard Mille T-400X", 
-      "description": "this is description 4",
-      "price": 350000000
-    },
-    { 
-      "id": 5, 
-      "title": "Patex Phillips", 
+    {
+      "id": 5,
+      "title": "Patex Phillips",
       "description": "this is description 5",
       "price": 150000000
+    },
+    {
+      "title": "Apple Watch Pro 2023",
+      "description": "this is description for apple watch",
+      "price": "7000000",
+      "id": 6
+    },
+    {
+      "title": "MacBook Pro 2018",
+      "description": "this is description for macbook pro",
+      "price": "10000000",
+      "id": 7
+    },
+    {
+      "title": "Rolex Cosmograph Daytone",
+      "description": "this is description for rolex",
+      "price": "350000000",
+      "id": 8
     }
   ]
 }
