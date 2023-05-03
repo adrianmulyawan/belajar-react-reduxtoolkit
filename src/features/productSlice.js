@@ -44,6 +44,16 @@ export const deleteProduct = createAsyncThunk("products/deleteProducts", async (
   }
 });
 
+export const updateProduct = createAsyncThunk("products/updateProduct", async ({ id, title, description, price }) => {
+  try {
+    const response = await axios.put(`http://localhost:3004/products/${id}`, {title, description, price});
+
+    return response.data;
+  } catch (error) {
+    return error.message;
+  }
+});
+
 // > Entity Adapater untuk Product
 const productEntity = createEntityAdapter({
   selectId: (product) => product.id,
@@ -126,6 +136,29 @@ const productSlice = createSlice({
     // # set isLoading = false
     // # set state error menjadi pesan error
     [deleteProduct.rejected]: (state, action) => {
+      state.error = action.error.message;
+      state.isLoading = false;
+    },
+
+    // > Kondisi updateProduct
+    // => Ketika sedang pending (menunggu data product)
+    // # set isLoading = true
+    [updateProduct.pending]: (state) => {
+      state.isLoading = true;
+    },
+    // => Ketika berhasil diupdate
+    // # set isLoading = false
+    [updateProduct.fulfilled]: (state, action) => {
+      productEntity.updateOne(state, {
+        id: action.payload.id,
+        updates: action.payload
+      });
+      state.isLoading = false;
+    },
+    // => Ketika rejected (gagal mengupdate data product)
+    // # set isLoading = false
+    // # set state error menjadi pesan error
+    [updateProduct.rejected]: (state, action) => {
       state.error = action.error.message;
       state.isLoading = false;
     },
