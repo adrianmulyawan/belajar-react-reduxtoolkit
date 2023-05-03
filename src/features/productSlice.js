@@ -24,6 +24,16 @@ export const getProducts = createAsyncThunk("products/getProducts", async () => 
   }
 });
 
+// > Method untuk tambah data (insert new Product)
+export const insertProduct = createAsyncThunk("products/insertProduct", async (data) => {
+  try {
+    const response = await axios.post('http://localhost:3004/products', data);
+    return response.data;
+  } catch (error) {
+    return error.message;
+  }
+});
+
 // > Entity Adapater untuk Product
 const productEntity = createEntityAdapter({
   selectId: (product) => product.id,
@@ -68,8 +78,28 @@ const productSlice = createSlice({
     [getProducts.rejected]: (state, action) => {
       state.error = action.error.message;
       state.isLoading = false;
-    }
-  }
+    },
+
+    // > Kondisi getProduct
+    // => Ketika sedang pending (menunggu data product)
+    // # set isLoading = true
+    [insertProduct.pending]: (state) => {
+      state.isLoading = true;
+    },
+    // => Ketika berhasil disimpan
+    // # set isLoading = false
+    [insertProduct.fulfilled]: (state, action) => {
+      productEntity.addOne(state, action.payload);
+      state.isLoading = false
+    },
+    // => Ketika rejected (gagal menyimpan data product)
+    // # set isLoading = false
+    // # set state error menjadi pesan error
+    [insertProduct.rejected]: (state, action) => {
+      state.error = action.error.message;
+      state.isLoading = false;
+    },
+  },
 });
 
 // > Export actions
