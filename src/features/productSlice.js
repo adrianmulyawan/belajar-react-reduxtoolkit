@@ -34,6 +34,16 @@ export const insertProduct = createAsyncThunk("products/insertProduct", async (d
   }
 });
 
+// > Method untuk delete data product
+export const deleteProduct = createAsyncThunk("products/deleteProducts", async (id) => {
+  try {
+    await axios.delete(`http://localhost:3004/products/${id}`);
+    return id;
+  } catch (error) {
+    return error.message;
+  }
+});
+
 // > Entity Adapater untuk Product
 const productEntity = createEntityAdapter({
   selectId: (product) => product.id,
@@ -96,6 +106,26 @@ const productSlice = createSlice({
     // # set isLoading = false
     // # set state error menjadi pesan error
     [insertProduct.rejected]: (state, action) => {
+      state.error = action.error.message;
+      state.isLoading = false;
+    },
+
+    // > Kondisi deleteProduct
+    // => Ketika sedang pending (menunggu data product)
+    // # set isLoading = true
+    [deleteProduct.pending]: (state) => {
+      state.isLoading = true;
+    },
+    // => Ketika berhasil dihapus
+    // # set isLoading = false
+    [deleteProduct.fulfilled]: (state, action) => {
+      productEntity.removeOne(state, action.payload);
+      state.isLoading = false;
+    },
+    // => Ketika rejected (gagal menghapus data product)
+    // # set isLoading = false
+    // # set state error menjadi pesan error
+    [deleteProduct.rejected]: (state, action) => {
       state.error = action.error.message;
       state.isLoading = false;
     },
