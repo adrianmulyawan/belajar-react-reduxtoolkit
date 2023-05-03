@@ -1,0 +1,22 @@
+{
+  "products": [
+    { 
+      "id": 1, 
+      "title": "Casio W-456", 
+      "description": "this is description 1",
+      "price": "1000000" 
+    },
+    { 
+      "id": 2, 
+      "title": "Daniel Wellington Gen 2", 
+      "description": "this is description 2",
+      "price": "1500000" 
+    },
+    { 
+      "id": 3, 
+      "title": "G-SHOCK SGW-400H", 
+      "description": "this is description 3",
+      "price": "3000000" 
+    }
+  ]
+}
