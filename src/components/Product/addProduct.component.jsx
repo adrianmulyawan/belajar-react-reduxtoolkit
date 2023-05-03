@@ -1,20 +1,37 @@
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { update } from '../../features/productSlice';
+import { useDispatch } from 'react-redux';
+import { insertProduct } from '../../features/productSlice';
+import { useNavigate } from 'react-router-dom';
 
 const AddProductComponent = () => {
   // > State
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
+
+  // > Nilai yang akan dimasukan kedalam method insertProduct
+  const data = {
+    title, description, price
+  };
   
   // > Mengubah state yang berada di store
   // => menggunakan method 'useDispatch'
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleFormAddProduct = (event) => {
+  const handleFormAddProduct = async (event) => {
     event.preventDefault();
-  }
+
+    // > Jalankan method simpan data product
+    await dispatch(insertProduct(data));
+
+    // > Reset State 
+    setTitle('');
+    setDescription('');
+    setPrice('');
+
+    navigate('/product');
+  };
 
   return (
     <>
