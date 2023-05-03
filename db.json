@@ -7,10 +7,10 @@
       "price": 1000000
     },
     {
-      "id": 2,
-      "title": "Daniel Wellington Gen 2",
+      "title": "Daniel Wellington ",
       "description": "this is description 2",
-      "price": 1500000
+      "price": 1500000,
+      "id": 2
     },
     {
       "id": 5,
@@ -25,7 +25,7 @@
       "id": 6
     },
     {
-      "title": "MacBook Pro 2018",
+      "title": "MacBook Pro 2023",
       "description": "this is description for macbook pro",
       "price": "10000000",
       "id": 7
