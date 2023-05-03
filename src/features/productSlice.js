@@ -100,7 +100,7 @@ const productSlice = createSlice({
       state.isLoading = false;
     },
 
-    // > Kondisi getProduct
+    // > Kondisi insert product
     // => Ketika sedang pending (menunggu data product)
     // # set isLoading = true
     [insertProduct.pending]: (state) => {
